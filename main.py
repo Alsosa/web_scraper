@@ -1,6 +1,13 @@
 from bs4 import BeautifulSoup
+import requests
 
-with open("index.html", "r") as f:      # open index.html file on read mode as f.
-    doc = BeautifulSoup(f, "html.parser")   # parse the file
+url = "https://www.newegg.ca/gigabyte-geforce-rtx-4070-ti-gv-n407tgaming-oc-12gd/p/N82E16814932580"
 
-print(doc.prettify())  # print the parsed html using prettify for automatic indentation
+result = requests.get(url)
+doc = BeautifulSoup(result.text, "html.parser")
+
+
+prices = doc.find_all(string="$")
+parent = prices[0].parent
+strong = parent.find("strong")
+print(strong.string)
