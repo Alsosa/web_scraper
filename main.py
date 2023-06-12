@@ -2,7 +2,24 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-search_term = input("What product do you want to search for? ")
+print("Let's search graphics cards!")
+options = ['1050', '1060', '1080', '3050', '3060']
+
+user_input = ''
+
+input_message = "Pick an option:\n"
+
+for index, item in enumerate(options):
+    input_message += f'{index+1}) {item}\n'
+
+input_message += 'Your choice: '
+
+while user_input not in map(str, range(1, len(options) + 1)):
+    user_input = input(input_message)
+
+print('You picked: ' + options[int(user_input) - 1])
+
+search_term = options[int(user_input) - 1]
 
 url = f"https://www.newegg.ca/p/pl?d={search_term}&N=4131"
 page = requests.get(url).text
