@@ -20,9 +20,8 @@ Navigate to the directory where the script is located.
 
 Run the following command:
 ```bash
-python your_script_name.py
+python main.py
 ```
-Replace your_script_name.py with the actual name of your script.
 
 Follow the on-screen instructions to pick an option from the available graphics cards.
 
@@ -38,5 +37,3 @@ Contributions to this project are welcome. Feel free to open issues or submit pu
 
 ## Credits
 The script was developed using the BeautifulSoup and requests libraries.
-
-Make sure to replace your_script_name.py with the actual name of your script file. 
